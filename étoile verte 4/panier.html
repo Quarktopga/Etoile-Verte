@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Étoile Verte — Panier</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Votre sélection, prête à illuminer la maison. Ajustez vos quantités.">
+  <link rel="icon" href="images/logo.png">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <div id="header-placeholder"></div>
+
+  <section class="hero" style="--hero-image:url('images/sylviculture.jpg');">
+    <div class="hero-inner">
+      <h1>Votre panier</h1>
+      <p>Ajustez vos quantités, puis passez commande en confiance.</p>
+    </div>
+  </section>
+
+  <main class="container">
+    <section class="cart-section">
+      <div id="cart-empty" class="empty hidden">
+        <p>Votre panier est vide.</p>
+        <a class="btn btn-primary" href="nos-sapins.html">Choisir un sapin</a>
+      </div>
+      <table id="cart-table" class="cart-table">
+        <thead><tr><th>Produit</th><th>Taille</th><th>Prix</th><th>Quantité</th><th>Sous-total</th><th>Action</th></tr></thead>
+        <tbody id="cart-body"></tbody>
+        <tfoot>
+          <tr>
+            <td colspan="6" class="cart-total">
+              <div class="total-line"><span>Total</span><strong id="cart-total">0,00 €</strong></div>
+              <p class="note">Livraison offerte.</p>
+              <div class="cart-actions">
+                <a class="btn btn-ghost" href="nos-sapins.html">Ajouter d’autres sapins</a>
+                <a class="btn btn-primary" href="commander.html">Commander</a>
+              </div>
+              <button id="empty-cart" class="btn btn-danger">Vider le panier</button>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="assets/include.js"></script>
+  <script src="assets/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Étoile Verte — Commander (site test)</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Finalisez votre commande — parcours de démonstration, sans transaction réelle.">
+  <link rel="icon" href="images/logo.png">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <div id="header-placeholder"></div>
+
+  <section class="hero" style="--hero-image:url('images/sylviculture.jpg');">
+    <div class="hero-inner">
+      <h1>Finaliser votre commande</h1>
+      <p>⚠️ Aucune commande réelle n’est possible pour l’instant. Nous travaillons à la mise en place du service.</p>
+    </div>
+  </section>
+
+  <main class="container">
+    <section class="checkout">
+      <h2>Récapitulatif</h2>
+      <div id="checkout-summary" class="summary"></div>
+
+      <h2>Informations de livraison</h2>
+      <form id="checkout-form" class="checkout-form" novalidate>
+        <div class="form-row"><label for="name">Nom</label><input id="name" name="name" type="text" placeholder="Votre nom complet"><small class="error"></small></div>
+        <div class="form-row"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="vous@exemple.com"><small class="error"></small></div>
+        <div class="form-row"><label for="phone">Téléphone</label><input id="phone" name="phone" type="tel" placeholder="06 12 34 56 78"><small class="error"></small></div>
+        <div class="form-row"><label for="address">Adresse</label><input id="address" name="address" type="text" placeholder="N° et rue, code postal, ville"><small class="error"></small></div>
+        <div class="form-row"><label for="date">Date de livraison</label><input id="date" name="date" type="date"><small class="error"></small></div>
+
+        <div class="form-actions"><button class="btn btn-primary" type="submit" id="pay-btn">Payer</button><a class="btn btn-ghost" href="panier.html">Retour au panier</a></div>
+      </form>
+
+      <div id="checkout-success" class="success hidden">
+        <p>Merci pour votre commande — elle est confirmée (simulation).</p>
+        <p>Vous allez être redirigé vers l’accueil.</p>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="assets/include.js"></script>
+  <script src="assets/script.js"></script>
+</body>
+</html>
