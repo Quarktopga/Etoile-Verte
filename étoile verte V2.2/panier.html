@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Étoile Verte — Panier (site fictif)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="assets/css/site.css" rel="stylesheet">
+</head>
+<body class="page-panier">
+  <div data-include="components/header.html"></div>
+
+  <section class="hero hero-sylviculture">
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <h2>Votre panier</h2>
+      <p>Démonstration: les données restent côté navigateur.</p>
+    </div>
+  </section>
+
+  <main class="container">
+    <table class="cart-table" aria-label="Contenu du panier">
+      <thead>
+        <tr>
+          <th>Produit</th>
+          <th>Taille</th>
+          <th>Prix</th>
+          <th>Quantité</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="cart-body"></tbody>
+      <tfoot>
+        <tr>
+          <td colspan="5" class="cart-total">Total: <span id="cart-total">0 €</span></td>
+        </tr>
+      </tfoot>
+    </table>
+    <div class="form-actions">
+      <a class="btn btn-secondary" href="nos-sapins.html">Continuer les achats</a>
+      <a class="btn btn-primary" href="commander.html">Commander</a>
+    </div>
+  </main>
+
+  <div data-include="components/footer.html"></div>
+
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/cart.js"></script>
+</body>
+</html>

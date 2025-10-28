@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Étoile Verte — Contact (site fictif)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="assets/css/site.css" rel="stylesheet">
+</head>
+<body class="page-contact">
+  <div data-include="components/header.html"></div>
+
+  <section class="hero hero-sylviculture">
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <h2>Contact</h2>
+      <p>Formulaire fictif de démonstration. Aucune coordonnée n’est affichée.</p>
+    </div>
+  </section>
+
+  <main class="container">
+    <form id="form-contact" class="form" action="#" method="POST" novalidate>
+      <div class="form-group">
+        <label for="nom">Nom</label>
+        <input id="nom" name="nom" type="text" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="6" required></textarea>
+      </div>
+      <div class="form-group checkbox">
+        <label>
+          <input type="checkbox" name="devis">
+          Ce message concerne un devis pour une prestation.
+        </label>
+      </div>
+      <div class="form-actions">
+        <button class="btn btn-primary" type="submit">Envoyer</button>
+      </div>
+      <p class="fineprint">Site fictif de démonstration — vos messages sont utilisés à des fins de test uniquement.</p>
+    </form>
+  </main>
+
+  <div data-include="components/footer.html"></div>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script>
+    const form = document.getElementById('form-contact');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form));
+      const emailOk = /\S+@\S+\.\S+/.test(data.email);
+      if (!data.nom || !emailOk || !data.message) {
+        alert('Merci de remplir tous les champs avec un email valide.');
+        return;
+      }
+      alert('Message enregistré (démo) ✅');
+      form.reset();
+      /* Exemple (quand back prêt):
+      await fetch(`${window.API_BASE}/api/contact`, {...})
+      */
+    });
+  </script>
+</body>
+</html>

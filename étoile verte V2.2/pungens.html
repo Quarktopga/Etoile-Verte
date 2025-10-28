@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Étoile Verte — Pungens (site fictif)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="assets/css/site.css" rel="stylesheet">
+</head>
+<body class="page-produit">
+  <div data-include="components/header.html"></div>
+
+  <section class="hero hero-sylviculture">
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <h2>Pungens</h2>
+      <p>Bleuté, branches robustes — tailles en cm, prix réalistes</p>
+    </div>
+  </section>
+
+  <main class="container">
+    <article class="product">
+      <img src="images/pungens.jpg" alt="Sapin Pungens">
+      <p class="note">La taille correspond à la hauteur totale du sapin, de la base au sommet.</p>
+      <ul class="sizes">
+        <li><strong>Taille:</strong> 80–100 cm — <strong>Prix:</strong> 39 €</li>
+        <li><strong>Taille:</strong> 125–150 cm — <strong>Prix:</strong> 64 €</li>
+        <li><strong>Taille:</strong> 150–200 cm — <strong>Prix:</strong> 94 €</li>
+      </ul>
+      <div class="form-actions">
+        <button class="btn btn-primary add-to-cart" data-product="Pungens" data-size="80–100 cm" data-price="39">Ajouter au panier</button>
+        <a class="btn btn-secondary" href="nos-sapins.html#pungens">Retour aux sapins</a>
+      </div>
+    </article>
+  </main>
+
+  <div data-include="components/footer.html"></div>
+  <script src="assets/js/ui.js"></script>
+</body>
+</html>
