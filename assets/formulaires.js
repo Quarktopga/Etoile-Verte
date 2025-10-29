@@ -2,7 +2,7 @@
 // Initialisation de Supabase
 // ===============================
 const SUPABASE_URL = "https://rjlqpysextxzjcmzcmdy.supabase.co"; // <-- ton URL Supabase
-const SUPABASE_ANON_KEY = "TA_CLEF_ANON_ICI"; // <-- ta clé anon (Settings > API)
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJqbHFweXNleHR4empjbXpjbWR5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE3Mzk3NTIsImV4cCI6MjA3NzMxNTc1Mn0.7MgzB1Pzr1L2q6GNhLJO2ZIwXZdlnFHZI7fMkhLzXR0"; // <-- ta clé anon (Settings > API)
 const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 // ===============================
