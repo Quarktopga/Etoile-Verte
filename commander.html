@@ -22,76 +22,83 @@
     </div>
   </header>
 
-  <main>
-    <div class="container">
-      <h1>Commander</h1>
+<main>
+  <div class="container">
+    <h1>Commander</h1>
 
-      <h2>Votre panier</h2>
-      <table class="table" aria-label="Récapitulatif commande">
-        <thead>
-          <tr><th>Variété</th><th>Taille</th><th>Prix unitaire</th><th>Quantité</th><th>Sous-total</th></tr>
-        </thead>
-        <tbody id="order-tbody"></tbody>
-      </table>
+    <h2>Votre panier</h2>
+    <table class="table" aria-label="Récapitulatif commande">
+      <thead>
+        <tr>
+          <th>Variété</th>
+          <th>Taille</th>
+          <th>Prix unitaire</th>
+          <th>Quantité</th>
+          <th>Sous-total</th>
+        </tr>
+      </thead>
+      <tbody id="order-tbody"></tbody>
+    </table>
 
-      <h2>Informations de livraison</h2>
-      <form id="order-form" novalidate>
-        <div class="form-row">
-          <label for="name">Nom</label>
-          <input id="name" class="input" />
-          <span class="field-error" aria-live="polite"></span>
-        </div>
-        <div class="form-row">
-          <label for="phone">Téléphone (FR)</label>
-          <input id="phone" class="input" />
-          <span class="field-error" aria-live="polite"></span>
-        </div>
-        <div class="form-row">
-          <label for="email">Email</label>
-          <input id="email" class="input" />
-          <span class="field-error" aria-live="polite"></span>
-        </div>
-        <p style="color:#666;">L'horaire de la livraison vous sera communiqué via cet e-mail.</p>
+    <h2>Informations de livraison</h2>
+    <form id="order-form" novalidate>
+      <div class="form-row">
+        <label for="name">Nom</label>
+        <input id="name" name="name" class="input" required />
+        <span class="field-error" aria-live="polite"></span>
+      </div>
+      <div class="form-row">
+        <label for="phone">Téléphone (FR)</label>
+        <input id="phone" name="phone" class="input" required />
+        <span class="field-error" aria-live="polite"></span>
+      </div>
+      <div class="form-row">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" class="input" required />
+        <span class="field-error" aria-live="polite"></span>
+      </div>
+      <p style="color:#666;">L'horaire de la livraison vous sera communiqué via cet e-mail.</p>
 
-        <div class="form-row">
-          <label for="streetNo">Nº</label>
-          <input id="streetNo" class="input" />
-          <span class="field-error" aria-live="polite"></span>
-        </div>
-        <div class="form-row">
-          <label for="street">Voie</label>
-          <input id="street" class="input" />
-          <span class="field-error" aria-live="polite"></span>
-        </div>
-        <div class="form-row">
-          <label for="zip">Code postal</label>
-          <input id="zip" class="input" />
-          <span class="field-error" aria-live="polite"></span>
-        </div>
-        <div class="form-row">
-          <label for="city">Ville</label>
-          <input id="city" class="input" />
-          <span class="field-error" aria-live="polite"></span>
-        </div>
+      <div class="form-row">
+        <label for="streetNo">Nº</label>
+        <input id="streetNo" name="streetNo" class="input" required />
+        <span class="field-error" aria-live="polite"></span>
+      </div>
+      <div class="form-row">
+        <label for="street">Voie</label>
+        <input id="street" name="street" class="input" required />
+        <span class="field-error" aria-live="polite"></span>
+      </div>
+      <div class="form-row">
+        <label for="zip">Code postal</label>
+        <input id="zip" name="zip" class="input" required />
+        <span class="field-error" aria-live="polite"></span>
+      </div>
+      <div class="form-row">
+        <label for="city">Ville</label>
+        <input id="city" name="city" class="input" required />
+        <span class="field-error" aria-live="polite"></span>
+      </div>
 
-        <p style="color:#666;">Ces informations sont essentielles pour la livraison.</p>
+      <p style="color:#666;">Ces informations sont essentielles pour la livraison.</p>
 
-        <div class="form-row">
-          <label for="date">Date</label>
-          <select id="date" class="input">
-            <option value="">Sélectionnez...</option>
-            <option>4 décembre</option>
-            <option>11 décembre</option>
-            <option>18 décembre</option>
-          </select>
-          <span class="field-error" aria-live="polite"></span>
-        </div>
+      <div class="form-row">
+        <label for="date">Date</label>
+        <select id="date" name="date" class="input" required>
+          <option value="">Sélectionnez...</option>
+          <option value="4 décembre">4 décembre</option>
+          <option value="11 décembre">11 décembre</option>
+          <option value="18 décembre">18 décembre</option>
+        </select>
+        <span class="field-error" aria-live="polite"></span>
+      </div>
 
-        <button id="order-submit" class="btn" type="submit">Commander</button>
-        <div id="order-success" style="color:#2F7A3E; font-weight:600; margin-top:8px; display:none;"></div>
-      </form>
-    </div>
-  </main>
+      <button id="order-submit" class="btn" type="submit">Commander</button>
+      <div id="order-success" style="color:#2F7A3E; font-weight:600; margin-top:8px; display:none;"></div>
+    </form>
+  </div>
+</main>
+
 
   <footer role="contentinfo">
     <div class="links">
