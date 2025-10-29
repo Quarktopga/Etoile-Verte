@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>Étoile Verte — Page non trouvée</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="assets/styles.css" rel="stylesheet" />
+</head>
+<body>
+  <header role="banner">
+    <div class="header-inner">
+      <a href="index.html"><img src="images/logo.png" alt="Étoile Verte" class="logo" /></a>
+      <nav class="nav">
+        <a href="index.html">Accueil</a>
+        <a href="nos-sapins.html">Nos sapins</a>
+        <a href="services.html">Services</a>
+        <a href="espace-pro.html">Espace pro</a>
+        <a href="contact.html">Contact</a>
+        <a href="panier.html">Panier (<span id="cart-count">0</span>)</a>
+        <a id="nav-commander" href="commander.html">Commander</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container" style="text-align:center;">
+      <h1>Oups… page introuvable</h1>
+      <p>On dirait que vous êtes tombé sur une route enneigée.</p>
+      <a class="btn" href="index.html">Retour à l’accueil</a>
+    </div>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="links">
+      <a href="faq.html">FAQ</a>
+      <a href="cgv.html">CGV</a>
+      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="plan-du-site.html">Plan du site</a>
+    </div>
+    <div class="note">Ce site est un projet de démonstration ; aucune commande réelle n'est possible pour l'instant.</div>
+    <div class="brand">Étoile Verte</div>
+  </footer>
+  <div id="cookie-banner" role="dialog" aria-live="polite">
+    <div class="banner-inner">
+      <p>Nous utilisons un ruban cookies pour améliorer l’expérience. Aucune donnée n’est conservée.</p>
+      <button id="cookie-accept" class="btn">J'accepte</button>
+      <button id="cookie-more" class="btn btn-outline">En savoir plus</button>
+    </div>
+  </div>
+
+  <script type="module">
+    import { initHeaderFooter, initCookies } from "./assets/app.js";
+    initHeaderFooter();
+    initCookies();
+  </script>
+</body>
+</html>

@@ -1,0 +1,247 @@
+/* Typography & colors */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+:root {
+  --green: #2F7A3E;
+  --green-light: #3B8F4C;
+  --text: #222;
+  --text-muted: #666;
+  --white: #FFFFFF;
+  --container-max: 1100px;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: Montserrat, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);
+  background: url('../images/paysage.webp') center/cover no-repeat fixed;
+  min-height: 100vh;
+}
+
+/* Layout */
+header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: var(--green);
+  color: var(--white);
+  z-index: 1000;
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 10px 16px;
+}
+.header-inner img.logo {
+  height: 48px;
+  width: auto;
+  cursor: pointer;
+}
+.nav {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.nav a {
+  color: var(--white);
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+.nav a:hover { background: var(--green-light); }
+.nav .btn.btn-accent {
+  background: var(--green-light);
+  border-radius: 10px;
+}
+
+.container {
+  background: var(--white);
+  margin: 24px auto;
+  padding: 24px;
+  max-width: var(--container-max);
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+.container h1, .container h2 { margin-top: 0; }
+
+footer {
+  background: var(--green);
+  color: var(--white);
+  padding: 24px 16px;
+  text-align: center;
+  margin-top: 40px;
+}
+footer .links {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+footer .links a {
+  color: var(--white);
+  text-decoration: none;
+}
+footer .links a:hover { text-decoration: underline; }
+footer .note { margin: 8px 0; color: #e9f5ea; }
+footer .brand { font-weight: 600; }
+
+/* Buttons & Links */
+.btn {
+  background: var(--green);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+.btn:hover { background: var(--green-light); }
+.btn-outline {
+  background: transparent;
+  color: var(--green);
+  border: 2px solid var(--green);
+}
+.link { background: transparent; border: none; color: var(--green); cursor: pointer; }
+.link:hover { text-decoration: underline; }
+.link.danger { color: #b00020; }
+
+/* Cookie banner */
+#cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0; right: 0;
+  background: rgba(255,255,255,0.95);
+  border-top: 3px solid var(--green);
+  padding: 12px 16px;
+  display: none;
+  z-index: 1100;
+}
+#cookie-banner .banner-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+#cookie-banner p { margin: 0; flex: 1; }
+
+/* Home hero */
+.hero {
+  text-align: center;
+  color: var(--white);
+  padding: 80px 16px 120px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+.hero .slogan {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+/* Cards & grids */
+.grid {
+  display: grid;
+  gap: 16px;
+}
+.grid.cols-3 {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.card {
+  border: 1px solid #eee;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+.card .card-body { padding: 16px; }
+.card img { width: 100%; height: auto; display: block; }
+
+/* Tables */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table th, .table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid #eee;
+}
+.table tr:last-child td { border-bottom: none; }
+
+/* Product page lines */
+.product-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+.product-line .size { font-weight: 600; margin-right: 10px; }
+.product-line .price { color: var(--text-muted); }
+
+/* Forms */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.form-row label { font-weight: 600; }
+.input, select, textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+}
+.input[aria-invalid="true"], textarea[aria-invalid="true"], select[aria-invalid="true"] {
+  border-color: #b00020;
+}
+.field-error {
+  grid-column: 2 / 3;
+  color: #b00020;
+  font-size: 13px;
+  display: none;
+}
+
+/* Cart */
+.qty-btn {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #f8f8f8;
+  width: 28px; height: 28px;
+  cursor: pointer;
+}
+.qty { display: inline-block; min-width: 24px; text-align: center; }
+
+/* Accordeon FAQ */
+details {
+  border: 1px solid #eee;
+  border-radius: 6px;
+  padding: 10px 12px;
+  background: #fff;
+}
+details + details { margin-top: 10px; }
+summary { font-weight: 600; cursor: pointer; }
+
+/* Snow canvas */
+#snow {
+  position: fixed;
+  pointer-events: none;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Responsive tweaks */
+@media (max-width: 640px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  .field-error {
+    grid-column: 1 / 2;
+  }
+}
