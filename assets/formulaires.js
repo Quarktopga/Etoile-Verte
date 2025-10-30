@@ -2,7 +2,7 @@
 // Initialisation de Supabase
 // ===============================
 const SUPABASE_URL = "https://rjlqpysextxzjcmzcmdy.supabase.co"; // <-- ton URL Supabase
-const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJqbHFweXNleHR4empjbXpjbWR5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE3Mzk3NTIsImV4cCI6MjA3NzMxNTc1Mn0.7MgzB1Pzr1L2q6GNhLJO2ZIwXZdlnFHZI7fMkhLzXR0"; // <-- ta clé anon (Settings > API)
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJqbHFweXNleHR4empjbXpjbWR5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE3Mzk3NTIsImV4cCI6MjA3NzMxNTc1Mn0.7MgzB1Pzr1L2q6GNhLJO2ZIwXZdlnFHZI7fMkhLzXR0"; // <-- ta clé anon
 const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 // ===============================
@@ -12,11 +12,12 @@ const contactForm = document.getElementById("contact-form");
 if (contactForm) {
   contactForm.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const { error } = await supabase.from("contact_messages").insert({
+    const { data, error } = await supabase.from("contact_messages").insert({
       name: e.target.name.value,
       email: e.target.email.value,
       message: e.target.message.value,
     });
+
     const successBox = document.getElementById("contact-success");
     if (error) {
       successBox.style.display = "block";
@@ -38,28 +39,31 @@ const orderForm = document.getElementById("order-form");
 if (orderForm) {
   orderForm.addEventListener("submit", async (e) => {
     e.preventDefault();
+
+    // Récupérer les items du panier
     const rows = document.querySelectorAll("#order-tbody tr");
-const items = Array.from(rows).map(row => ({
-  variety: row.querySelector(".variety").textContent,
-  size: row.querySelector(".size").textContent,
-  unit_price: parseFloat(row.querySelector(".price").textContent),
-  quantity: parseInt(row.querySelector(".quantity").textContent, 10),
-  subtotal: parseFloat(row.querySelector(".subtotal").textContent)
-}));
+    const items = Array.from(rows).map(row => ({
+      variety: row.querySelector(".variety")?.textContent || "",
+      size: row.querySelector(".size")?.textContent || "",
+      unit_price: parseFloat(row.querySelector(".price")?.textContent || 0),
+      quantity: parseInt(row.querySelector(".quantity")?.textContent || "0", 10),
+      subtotal: parseFloat(row.querySelector(".subtotal")?.textContent || 0)
+    }));
 
-await supabase.from("orders").insert({
-  name: e.target.name.value,
-  phone: e.target.phone.value,
-  email: e.target.email.value,
-  streetNo: e.target.streetNo.value,
-  street: e.target.street.value,
-  zip: e.target.zip.value,
-  city: e.target.city.value,
-  date: e.target.date.value,
-  items // 👈 on envoie bien les articles
-});
-
+    // Insertion dans Supabase
+    const { data, error } = await supabase.from("orders").insert({
+      name: e.target.name.value,
+      phone: e.target.phone.value,
+      email: e.target.email.value,
+      streetNo: e.target.streetNo.value,
+      street: e.target.street.value,
+      zip: e.target.zip.value,
+      city: e.target.city.value,
+      date: e.target.date.value,
+      items // 👈 tableau JSON envoyé
     });
+
+    // Gestion du retour
     const successBox = document.getElementById("order-success");
     if (error) {
       successBox.style.display = "block";
@@ -81,7 +85,7 @@ const proForm = document.getElementById("pro-form");
 if (proForm) {
   proForm.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const { error } = await supabase.from("quotes").insert({
+    const { data, error } = await supabase.from("quotes").insert({
       orgType: proForm.orgType.value,
       orgOther: proForm.orgOther?.value || "",
       name: e.target.name.value,
@@ -96,6 +100,7 @@ if (proForm) {
       day: e.target.day.value,
       hour: e.target.hour.value,
     });
+
     const successBox = document.getElementById("pro-success");
     if (error) {
       successBox.style.display = "block";
