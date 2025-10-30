@@ -38,15 +38,27 @@ const orderForm = document.getElementById("order-form");
 if (orderForm) {
   orderForm.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const { error } = await supabase.from("orders").insert({
-      name: e.target.name.value,
-      phone: e.target.phone.value,
-      email: e.target.email.value,
-      streetNo: e.target.streetNo.value,
-      street: e.target.street.value,
-      zip: e.target.zip.value,
-      city: e.target.city.value,
-      date: e.target.date.value,
+    const rows = document.querySelectorAll("#order-tbody tr");
+const items = Array.from(rows).map(row => ({
+  variety: row.querySelector(".variety").textContent,
+  size: row.querySelector(".size").textContent,
+  unit_price: parseFloat(row.querySelector(".price").textContent),
+  quantity: parseInt(row.querySelector(".quantity").textContent, 10),
+  subtotal: parseFloat(row.querySelector(".subtotal").textContent)
+}));
+
+await supabase.from("orders").insert({
+  name: e.target.name.value,
+  phone: e.target.phone.value,
+  email: e.target.email.value,
+  streetNo: e.target.streetNo.value,
+  street: e.target.street.value,
+  zip: e.target.zip.value,
+  city: e.target.city.value,
+  date: e.target.date.value,
+  items // 👈 on envoie bien les articles
+});
+
     });
     const successBox = document.getElementById("order-success");
     if (error) {
